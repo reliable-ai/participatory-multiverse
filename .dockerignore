@@ -10,3 +10,6 @@ __pycache__/
 
 # Ignore large ACS PUMS data files
 data/**/psam_p*.csv
+
+# Ignore interactive analysis files
+interactive-analysis/

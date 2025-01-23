@@ -1,0 +1,62 @@
+country,n,separate_plot
+United States,146,TRUE
+United Kingdom,28,TRUE
+Australia,24,TRUE
+Canada,24,TRUE
+Germany,21,TRUE
+France,15,TRUE
+Brazil,8,TRUE
+Russia,8,TRUE
+Denmark,7,TRUE
+Aotearoa New Zealand,6,TRUE
+Poland,6,TRUE
+South Korea,6,TRUE
+Sweden,5,TRUE
+Argentina,4,FALSE
+Austria,4,FALSE
+Italy,4,FALSE
+Norway,4,FALSE
+Saudi Arabia,4,FALSE
+Spain,4,FALSE
+Turkey,4,FALSE
+Belgium,3,FALSE
+China,3,FALSE
+Hong Kong,3,FALSE
+Portugal,3,FALSE
+Afghanistan,2,FALSE
+Albania,2,FALSE
+Andorra,2,FALSE
+Azerbaijan,2,FALSE
+Finland,2,FALSE
+Greece,2,FALSE
+Hungary,2,FALSE
+India,2,FALSE
+Indonesia,2,FALSE
+Iran,2,FALSE
+Ireland,2,FALSE
+Japan,2,FALSE
+Serbia,2,FALSE
+Taiwan,2,FALSE
+The Netherlands,2,FALSE
+Vietnam,2,FALSE
+Algeria,1,FALSE
+Armenia,1,FALSE
+Barbados,1,FALSE
+Chile,1,FALSE
+Egypt,1,FALSE
+Estonia,1,FALSE
+Georgia,1,FALSE
+Israel,1,FALSE
+Kenya,1,FALSE
+Kuwait,1,FALSE
+Latvia,1,FALSE
+Mexico,1,FALSE
+Mongolia,1,FALSE
+Myanmar,1,FALSE
+Philippines,1,FALSE
+Romania,1,FALSE
+Singapore,1,FALSE
+South Africa,1,FALSE
+Sri Lanka,1,FALSE
+Switzerland,1,FALSE
+Thailand,1,FALSE
