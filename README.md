@@ -1,44 +1,30 @@
 # Participatory Multiverse Simulation
 
-This is the original simulation code used to conduct analyses for the paper **Preventing Harmful Data Practices by using Participatory Input to Navigate the Machine Learning Multiverse** by Jan Simson, Fiona Draxler, Samuel Mehr and Christoph Kern.
+This repository holds the code for the simulation of the *multiverse* analysis conducted in the paper **Preventing Harmful Data Practices by using Participatory Input to Navigate the Machine Learning Multiverse** by Jan Simson, Fiona Draxler, Samuel Mehr and Christoph Kern.
 
-Please refer to the updated README on the `main` branch for the latest information about the paper itself, as well as a more modern implementation of the simulation code.
+This branch holds an updated version of the codebase, using newer versions of Python and respective packages. The original code used for the paper can be found on the `original` branch. The original Docker image used to run analyses can be found at [`ghcr.io/reliable-ai/participatory-multiverse:original-image`](https://github.com/reliable-ai/participatory-multiverse/pkgs/container/participatory-multiverse/341904979?tag=original-image).
 
 The code, as well as parts of this `README` are based on and adapted from [https://github.com/reliable-ai/fairml-multiverse/](https://github.com/reliable-ai/fairml-multiverse/).
-
-The original Docker image used to run analyses can be found at [`ghcr.io/reliable-ai/participatory-multiverse:original-imag`](https://github.com/reliable-ai/participatory-multiverse/pkgs/container/participatory-multiverse/341904979?tag=original-image).
 
 ## Running the Code
 
 ### Setup
 
-This project uses [Pipenv](https://pipenv.pypa.io/en/latest/) to control the Python environment. To install the dependencies, first install `pipenv` on your machine, then run `pipenv sync -d` in the root directory of the project. Once set up, you can enter the virtual environment in your command line by running `pipenv shell`.
+This project uses [uv](https://github.com/astral-sh/uv/) to control the Python environment to run the multiverse analysis. You will therefore first need to install `uv` by following the guidelines in the `uv` repository or running the following command:
+
+```bash
+pip install uv
+```
 
 ### Running the Multiverse Analysis
 
-You can run the complete multiverse analysis by running `python multiverse_analysis.py`. Make sure to activate the virtual environment beforehand, so that the installed dependencies are available. By default this will allow you to stop and restart the analysis between different universe runs.
+The multiverse analysis itself is orchestrated via the [multiversum](https://github.com/jansim/multiversum/) package. You can run the complete multiverse analysis by running `uv run -m multiversum`. When running the command, `uv` will automatically create a virtual environment and install all necessary dependencies. The analysis will then be executed in this virtual environment.
 
-To explore the individual analyses conducted in each *universe* of the *multiverse*, we recommend examining `universe_analysis.ipynb`. This notebook will be executed many times with different settings for each universe.
-
-### Analysing the Results
-
-The different Jupyter notebooks prefixed with `analysis` are analyzing the generated output from the multiverse analysis. To compute e.g. the different measures of variable importance, you can run the notebook [`analysis_var_imp_overall.ipynb`](./analysis_var_imp_overall.ipynb). The `analysis__setup.ipynb` is used for loading and preparing the multiverse analysis results and is called by the other notebooks internally. You may wish to change this notebook, though, to choose the correct `run` to analyze.
+To explore the individual analyses conducted in each *universe* of the *multiverse*, we recommend examining `universe.ipynb`. This notebook will be executed many times with different settings for each universe.
 
 ## Examining the Generated Data
 
-The generated data from the different analyses is located in the `output` directory. Raw data from the different *universes* can be found under `output/runs/`, raw data from the analyses e.g. the FANOVAs can be found under `output/analyses/`.
-
-# Adapting the Analysis
-
-We purposefully created our analysis in a way that makes it easy to adapt for your own usecase(s). The steps do so are as follows:
-
-1. Clone (or fork) this repository to have a copy of the codebase.
-2. Follow the steps in the "Setup" section to install dependencies and create a virtual environment.
-3. *Optional:* Delete files and results from the original analysis. You can safely delete the `data/`, `misc/`, `interactive-analysis/` and `output/` directories.
-4. Modify the [`universe_analysis.ipynb`](./universe_analysis.ipynb) notebook to contain your analysis instead. All settings / options you may wish to modify as explicit decisions in the multiverse can be configured in the `universe` object.
-   - We recommend verifying that your universe analysis script works correctly by trying out a few settings and running the script manually.
-5. Once you are satisfied with your universe analysis, you can update the [`multiverse_analysis.py`](./multiverse_analysis.py) script to include all available options for the decisions you created in the `universe_analysis.ipynb`.
-6. Execute the multiverse analysis script by running `python multiverse_analysis.py`. Make sure you are running your analysis inside the virtual environment created in step 2.
+The generated data from the different analyses is located in the `output` directory. Raw data from the different *universes* can be found under `output/runs/`.
 
 ## Important Concepts
 
@@ -57,14 +43,9 @@ To make it easier to run the code and for the sake of long term reproducibility,
 To run the multiverse analysis within our prebuilt container, you can run the following command:
 
 ```bash
-# Remove container after runnning
-docker run --rm --cpus=5 -v $(pwd)/output:/app/output ghcr.io/reliable-ai/participatory-multiverse
-
-# Restart up to 5 times if there are issues while running (happens sometimes when running in parallel)
-docker run --restart on-failure:5 --cpus=15 --env MODE=continue -v $(pwd)/output:/app/output ghcr.io/reliable-ai/participatory-multiverse
+# This will run the analysis with 16 cores and save the output to the output directory. The docker container will be deleted after the analysis is finished.
+docker run --rm --cpus=16 -v $(pwd)/output:/app/output ghcr.io/reliable-ai/participatory-multiverse:latest
 ```
-
-Please note the cpus flag here, which may be necessary based on how powerful of a machine you use. When we first conducted the analysis on an 8 core machine we did not encounter any issues, but when running the analysis on a 32 core machine we encountered issues with a race condition leading to errors upon startup due to a [bug](https://github.com/nteract/papermill/issues/511) in the Jupyter client.
 
 ### Building
 
@@ -77,7 +58,7 @@ docker build -t participatory-multiverse .
 To run the multiverse analysis within the container you built yourself, you can run the following command:
 
 ```bash
-docker run --rm --cpus=5 -v $(pwd)/output:/app/output participatory-multiverse
+docker run --rm --cpus=10 -v $(pwd)/output:/app/output participatory-multiverse
 ```
 
 ## License

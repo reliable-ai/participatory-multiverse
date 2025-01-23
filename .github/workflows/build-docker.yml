@@ -6,10 +6,13 @@ on:
   workflow_dispatch:
   # Run whenever python code or the Dockerfile changes
   push:
+    branches:
+      - main
     paths:
       - '**.py'
       - '**.ipynb'
       - 'Dockerfile'
+      - 'uv.lock'
 
 env:
   REGISTRY: ghcr.io

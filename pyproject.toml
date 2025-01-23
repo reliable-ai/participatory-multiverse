@@ -1,0 +1,12 @@
+[project]
+name = "participatory-multiverse-simulation"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fairlearn>=0.11.0",
+    "folktables>=0.0.12",
+    "multiversum>=0.3.1",
+    "scikit-learn>=1.5.2",
+]
