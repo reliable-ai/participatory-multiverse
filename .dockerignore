@@ -1,0 +1,11 @@
+.git
+.vscode
+misc/
+paper/
+output/
+
+__pycache__/
+*.egg-info
+
+# Ignore large ACS PUMS data files
+data/**/psam_p*.csv
