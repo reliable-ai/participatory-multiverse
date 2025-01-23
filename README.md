@@ -6,6 +6,8 @@ Please refer to the updated README on the `main` branch for the latest informati
 
 The code, as well as parts of this `README` are based on and adapted from [https://github.com/reliable-ai/fairml-multiverse/](https://github.com/reliable-ai/fairml-multiverse/).
 
+The original Docker image used to run analyses can be found at [`ghcr.io/reliable-ai/participatory-multiverse:original-imag`](https://github.com/reliable-ai/participatory-multiverse/pkgs/container/participatory-multiverse/341904979?tag=original-image).
+
 ## Running the Code
 
 ### Setup
