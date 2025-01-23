@@ -1,12 +1,12 @@
 # Participatory Multiverse
 
-This repository holds the code for the simulation of the *multiverse analysis* conducted in the paper **Preventing Harmful Data Practices by using Participatory Input to Navigate the Machine Learning Multiverse** by Jan Simson, Fiona Draxler, Samuel Mehr and Christoph Kern.
+This repository contains the code for the simulation of the *multiverse analysis* described in the paper **Preventing Harmful Data Practices by Using Participatory Input to Navigate the Machine Learning Multiverse** by Jan Simson, Fiona Draxler, Samuel Mehr, and Christoph Kern.
 
-The repository also contains the code for the interactive analysis of country-level data from the paper. The interactive analysis can be viewed at: [https://reliable-ai.github.io/participatory-multiverse/](https://reliable-ai.github.io/participatory-multiverse/). Its code is locateted in the directory [`interactive-analysis/`](./interactive-analysis).
+The repository also includes the code for the interactive analysis of country-level data from the paper. The interactive analysis can be accessed at [https://reliable-ai.github.io/participatory-multiverse/](https://reliable-ai.github.io/participatory-multiverse/), and its code is located in the [`interactive-analysis/`](./interactive-analysis) directory.
 
-This branch holds an updated version of the codebase, using newer versions of Python and respective packages. The original code used for the paper can be found on the `original` branch. The original Docker image used to run analyses can be found at [`ghcr.io/reliable-ai/participatory-multiverse:original-image`](https://github.com/reliable-ai/participatory-multiverse/pkgs/container/participatory-multiverse/341904979?tag=original-image).
+This branch features an updated version of the codebase, using newer versions of Python and related packages. The original code used in the paper can be found on the `original` branch. The Docker image used for the original analysis is available at [`ghcr.io/reliable-ai/participatory-multiverse:original-image`](https://github.com/reliable-ai/participatory-multiverse/pkgs/container/participatory-multiverse/341904979?tag=original-image).
 
-The code, as well as parts of this `README` are based on and adapted from [https://github.com/reliable-ai/fairml-multiverse/](https://github.com/reliable-ai/fairml-multiverse/).
+The code, as well as parts of this `README`, are based on and adapted from [https://github.com/reliable-ai/fairml-multiverse/](https://github.com/reliable-ai/fairml-multiverse/).
 
 ## Running the Code
 
