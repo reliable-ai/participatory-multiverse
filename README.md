@@ -6,7 +6,7 @@ Please refer to the updated README on the `main` branch for the latest informati
 
 The code, as well as parts of this `README` are based on and adapted from [https://github.com/reliable-ai/fairml-multiverse/](https://github.com/reliable-ai/fairml-multiverse/).
 
-The original Docker image used to run analyses can be found at [`ghcr.io/reliable-ai/participatory-multiverse:original-imag`](https://github.com/reliable-ai/participatory-multiverse/pkgs/container/participatory-multiverse/341904979?tag=original-image).
+The original Docker image used to run analyses can be found at [`ghcr.io/reliable-ai/participatory-multiverse:original-image`](https://github.com/reliable-ai/participatory-multiverse/pkgs/container/participatory-multiverse/341904979?tag=original-image).
 
 ## Running the Code
 
@@ -58,10 +58,10 @@ To run the multiverse analysis within our prebuilt container, you can run the fo
 
 ```bash
 # Remove container after runnning
-docker run --rm --cpus=5 -v $(pwd)/output:/app/output ghcr.io/reliable-ai/participatory-multiverse
+docker run --rm --cpus=5 -v $(pwd)/output:/app/output ghcr.io/reliable-ai/participatory-multiverse:original-image
 
 # Restart up to 5 times if there are issues while running (happens sometimes when running in parallel)
-docker run --restart on-failure:5 --cpus=15 --env MODE=continue -v $(pwd)/output:/app/output ghcr.io/reliable-ai/participatory-multiverse
+docker run --restart on-failure:5 --cpus=15 --env MODE=continue -v $(pwd)/output:/app/output ghcr.io/reliable-ai/participatory-multiverse:original-image
 ```
 
 Please note the cpus flag here, which may be necessary based on how powerful of a machine you use. When we first conducted the analysis on an 8 core machine we did not encounter any issues, but when running the analysis on a 32 core machine we encountered issues with a race condition leading to errors upon startup due to a [bug](https://github.com/nteract/papermill/issues/511) in the Jupyter client.
